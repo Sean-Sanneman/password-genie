@@ -3,30 +3,43 @@
 // Gather required password parameters
 
 var length = parseInt(
-  prompt('How many characters would you like your password to contain?')
-
+  prompt("How many characters would you like your password to contain?")
 );
-console.log(length)
+while (isNaN(length) || length < 8 || length > 128) length = parseInt(prompt("Answer not acceptable! Please choose a value between 8-128, or this system will self-destruct!"));
 
 var hasSpecialCharacters = confirm(
-  'Click OK to confirm including special characters.'
+  "Click OK to confirm including special characters."
 );
-console.log(hasSpecialCharacters)
-
 var hasLowercaseLetters = confirm(
-  'Click OK to confirm including lowercase letters.'
+  "Click OK to confirm including lowercase letters."
 );
-console.log(hasLowercaseLetters)
-
 var hasUppercaseLetters = confirm(
-  'Click OK to confirm including special characters.'
+  "Click OK to confirm including special characters."
 );
-console.log(hasUppercaseLetters)
-
 var hasNumbers = confirm(
-  'Click OK to confirm including numbers.'
+  "Click OK to confirm including numbers."
 );
-console.log(hasNumbers)
+console.log(length, hasNumbers, hasUppercaseLetters, hasLowercaseLetters, hasSpecialCharacters)
+// parameters established
+
+// functions for generator
+function getSpecialCharacter() {
+  const characters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+  return characters[Math.floor(Math.random() * symbols.length)];
+}
+
+function getLowercase() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getUppercase() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
 
 
 // Get references to the #generate element
