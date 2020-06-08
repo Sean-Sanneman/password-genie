@@ -1,5 +1,33 @@
 // Assignment code here
 
+// Gather required password parameters
+
+var length = parseInt(
+  prompt('How many characters would you like your password to contain?')
+
+);
+console.log(length)
+
+var hasSpecialCharacters = confirm(
+  'Click OK to confirm including special characters.'
+);
+console.log(hasSpecialCharacters)
+
+var hasLowercaseLetters = confirm(
+  'Click OK to confirm including lowercase letters.'
+);
+console.log(hasLowercaseLetters)
+
+var hasUppercaseLetters = confirm(
+  'Click OK to confirm including special characters.'
+);
+console.log(hasUppercaseLetters)
+
+var hasNumbers = confirm(
+  'Click OK to confirm including numbers.'
+);
+console.log(hasNumbers)
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
