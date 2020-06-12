@@ -1,5 +1,6 @@
 // Assignment code here
 
+
 // Gather required password parameters
 function informationGrab () {
   var length = parseInt(
@@ -26,13 +27,14 @@ if (hasSpecialCharacters === false && hasLowercaseLetters === false && hasUpperc
 
   console.log(length, hasNumbers, hasUppercaseLetters, hasLowercaseLetters, hasSpecialCharacters)
   // parameters established
-var userInfo = {
+
+  const userInfo = {
   length: length, 
-  hasSpecialCharacters: hasSpecialCharacters,
-  hasLowercaseLetters: hasLowercaseLetters,
-  hasUppercaseLetters: hasUppercaseLetters,
-  hasNumbers: hasNumbers
-};
+  special: hasSpecialCharacters,
+  lower: hasLowercaseLetters,
+  upper: hasUppercaseLetters,
+  number: hasNumbers
+}
 return userInfo;
 
 }
@@ -40,10 +42,11 @@ return userInfo;
 
 
 
+
 // functions for generator
 function getSpecialCharacter() {
-  const characters = ["!", "#", "$", "%","&","()","*","+","-",".","/",":",";","<","=",">","?","@","[","\","]","^"_`{|}~"];
-  return characters[Math.floor(Math.random() * symbols.length)];
+  const characters = ["!", "@", "$", "%", "^", "&", "*", "+", "?","<"]; 
+  return characters[Math.floor(Math.random() * characters.length)];
 }
 
 function getLowercase() {
@@ -57,13 +60,47 @@ function getUppercase() {
 function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
+console.log(getNumber())
+
 
 function generatePassword() {
   var options = informationGrab();
+  var password = "";
+  var funcs = [];
+
   // write checks for criteria
+  if(options.special === true) {
+    password += getSpecialCharacter()
+    funcs.push(getSpecialCharacter)
+  } 
+
+  if(options.lower === true) {
+    password += getLowercase()
+    funcs.push(getLowercase)
+  } 
+
+  if(options.upper === true) {
+    password += getUppercase()
+    funcs.push(getUppercase)
+  } 
+
+  if(options.number === true) {
+    password += getNumber()
+    funcs.push(getNumber)
+  } 
+  
   // write vars to store password
   // return password 
+  //for loop to generate
+  for (var i = password.length; i < parseInt.length; i++) {
+    var index = Math.floor(Math.random() * funcs.length)
+    password += funcs[index] ();
+  }
+  return password
+  console.log(password)
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -77,5 +114,6 @@ function writePassword() {
 
 }
 
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword());
