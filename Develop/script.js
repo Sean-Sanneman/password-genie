@@ -15,7 +15,7 @@ function informationGrab () {
     "Click OK to confirm including lowercase letters."
   );
   var hasUppercaseLetters = confirm(
-    "Click OK to confirm including special characters."
+    "Click OK to confirm including uppercase letters."
   );
   var hasNumbers = confirm(
     "Click OK to confirm including numbers."
@@ -69,27 +69,10 @@ function generatePassword() {
 
   
   // write checks for criteria
-  if(options.special === true) {
-   getSpecialCharacter()
-  } 
 
-  if(options.lower === true) {
-    getLowercase()
-  } 
-
-  if(options.upper === true) {
-    getUppercase()
-  } 
-
-  if(options.number === true) {
-    getNumber()
-  } 
-  // loop through specified number of times, and append specified chars
-  // write vars to store password
-  // return password 
-  //for loop to generate
+  //for loop to generate questions 
   for (var i = 0; i < options.length; i++) {
-    var addChar = ""
+    
     var charArray = []
     
     if(options.special === true) {
@@ -109,14 +92,8 @@ function generatePassword() {
      } 
 
      password += charArray[Math.floor(Math.random() * charArray.length)]
-
-     console.log(password)
-
-    
-  } 
-
+    } 
   return password
-  console.log(password)
 }
 
 
