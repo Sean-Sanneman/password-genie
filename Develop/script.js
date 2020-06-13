@@ -60,16 +60,17 @@ function getUppercase() {
 function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
-console.log(getNumber())
+
 
 
 function generatePassword() {
   var options = informationGrab();
   var password = "";
 
+  
   // write checks for criteria
   if(options.special === true) {
-    getSpecialCharacter()
+   getSpecialCharacter()
   } 
 
   if(options.lower === true) {
@@ -87,12 +88,37 @@ function generatePassword() {
   // write vars to store password
   // return password 
   //for loop to generate
-
   for (var i = 0; i < options.length; i++) {
-    password += getSpecialCharacter(), getLowercase(), getUppercase(), getNumber()} 
+    var addChar = ""
+    var charArray = []
+    
+    if(options.special === true) {
+       charArray.push(getSpecialCharacter())
+     } 
+   
+     if(options.lower === true) {
+      charArray.push(getLowercase())
+     } 
+   
+     if(options.upper === true) {
+       charArray.push(getUppercase())
+     } 
+   
+     if(options.number === true) {
+      charArray.push(getNumber())
+     } 
+
+     password += charArray[Math.floor(Math.random() * charArray.length)]
+
+     console.log(password)
+
+    
+  } 
+
   return password
   console.log(password)
 }
+
 
 
 
@@ -110,4 +136,4 @@ function writePassword() {
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
