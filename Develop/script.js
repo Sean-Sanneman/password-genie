@@ -66,36 +66,30 @@ console.log(getNumber())
 function generatePassword() {
   var options = informationGrab();
   var password = "";
-  var funcs = [];
 
   // write checks for criteria
   if(options.special === true) {
-    password += getSpecialCharacter()
-    funcs.push(getSpecialCharacter)
+    getSpecialCharacter()
   } 
 
   if(options.lower === true) {
-    password += getLowercase()
-    funcs.push(getLowercase)
+    getLowercase()
   } 
 
   if(options.upper === true) {
-    password += getUppercase()
-    funcs.push(getUppercase)
+    getUppercase()
   } 
 
   if(options.number === true) {
-    password += getNumber()
-    funcs.push(getNumber)
+    getNumber()
   } 
-  
+  // loop through specified number of times, and append specified chars
   // write vars to store password
   // return password 
   //for loop to generate
-  for (var i = password.length; i < parseInt.length; i++) {
-    var index = Math.floor(Math.random() * funcs.length)
-    password += funcs[index] ();
-  }
+
+  for (var i = 0; i < options.length; i++) {
+    password += getSpecialCharacter(), getLowercase(), getUppercase(), getNumber()} 
   return password
   console.log(password)
 }
