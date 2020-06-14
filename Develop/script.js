@@ -1,6 +1,3 @@
-// Assignment code here
-
-
 // Gather required password parameters
 function informationGrab () {
   var length = parseInt(
@@ -24,8 +21,6 @@ if (hasSpecialCharacters === false && hasLowercaseLetters === false && hasUpperc
   alert("Password must include at least one set of characters!!!"); 
   return; 
 }
-
-  console.log(length, hasNumbers, hasUppercaseLetters, hasLowercaseLetters, hasSpecialCharacters)
   // parameters established
 
   const userInfo = {
@@ -36,12 +31,7 @@ if (hasSpecialCharacters === false && hasLowercaseLetters === false && hasUpperc
   number: hasNumbers
 }
 return userInfo;
-
 }
-
-
-
-
 
 // functions for generator
 function getSpecialCharacter() {
@@ -67,10 +57,7 @@ function generatePassword() {
   var options = informationGrab();
   var password = "";
 
-  
-  // write checks for criteria
-
-  //for loop to generate questions 
+  //for loop to generate values 
   for (var i = 0; i < options.length; i++) {
     
     var charArray = []
@@ -96,10 +83,6 @@ function generatePassword() {
   return password
 }
 
-
-
-
-// Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -114,3 +97,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+//Booyakasha
